@@ -1,0 +1,190 @@
+\documentclass{CAUBeamer}
+\author{李奕则}
+\title{CAU Beamer Theme}
+\subtitle{CAU latex PPT 模板}
+\institute{数学与应用数学}
+\date{2024年8月20日}
+
+\begin{document}
+\kaishu
+
+\begin{frame}
+    \titlepage
+    \begin{figure}[htpb]
+        \begin{center}
+            \includegraphics[width=0.15\linewidth]{pic/cau.jpg}
+            %如果标题等内容大于一行可能会导致LOGO图片overbox，此时将上面这行的“width=0.15”改为“width=0.12”或更小即可。
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+\section{前言}
+
+\begin{frame}{前世今生}
+    \qquad 本模板最初源自\emphed{清华大学计算机系的翁家翌}，在此鸣谢这位大佬为很多学校的beamer模板\cite{origin}的奠基作用。这一版本作者\emphed{中国农业大学数学系的李奕则}在其THU Beamer Theme的基础上进行了“龙化”处理，细节调节以及模板代码封装，最终得到了这个CAU Beamer Theme。
+    \par
+    \begin{center}
+        \large \emphed{模板商业免费\quad 版权自由使用}
+    \end{center} 
+\end{frame}
+
+\begin{frame}{原版（THU Beamer Theme）地址}
+    此处放置原版地址以以示感谢和尊重。
+    \begin{itemize}
+        \item  Overleaf项目地址位于 \url{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}
+        \item GitHub项目地址位于 \url{https://github.com/Trinkle23897/THU-Beamer-Theme}，如果有bug或者feature request可以去里面给大佬提issue
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{当前版本Github地址}
+    \begin{itemize}
+        \item  Overleaf项目地址位于 \url{https://cn.overleaf.com/read/bcpscmwcyxmt\#d98c3b}
+        \item GitHub项目地址位于 \url{https://github.com/liyizenb/CAU-Beamer}
+    \end{itemize}
+\end{frame}
+
+\section{使用门槛及编译方案}
+
+\begin{frame}
+    \qquad 本模板经作者本人的优化，将大量固定语句进行了封装，且注释丰富，操作理解门槛降低，但是仍需有一定的\LaTeX{}基础。
+    \par 编译方案建议如下：
+    \begin{itemize}
+        \item 简单修改查看效果推荐使用xe-xe方法编译，这种方法速度较快但是参考文献无法显示。
+        \item 最后输出或者对参考文献进行更改的话就用常用的Beamer编译方法：xe-bib-xe-xe。
+    \end{itemize}
+\end{frame}
+
+\section{使用教程}
+\subsection{文字类}
+\begin{frame}[fragile]{常用命令汇总}
+    \begin{exampleblock}{命令}
+        \centering
+        \footnotesize
+        \begin{tabular}{llll}
+            \cmd{chapter} & \cmd{section} & \cmd{subsection} & \cmd{paragraph} \\
+            章 & 节 & 小节 & 带题头段落 \\\hline
+            \cmd{centering} & \cmd{emph}\footnote{这里的强调命令可能不是特别好看，作者加了一个\cmd{emphed}命令，可以自行尝试效果。} & \cmd{verb} & \cmd{url} \\
+            居中对齐 & 强调 & 原样输出 & 超链接 \\\hline
+            \cmd{footnote} & \cmd{item} & \cmd{caption} & \cmd{includegraphics} \\
+            脚注 & 列表条目 & 标题 & 插入图片 \\\hline
+            \cmd{label} & \cmd{cite} & \cmd{ref} \\
+            标号 & 引用参考文献 & 引用图表公式等\\\hline
+        \end{tabular}
+    \end{exampleblock}
+    \begin{exampleblock}{环境}
+        \centering
+        \footnotesize
+        \begin{tabular}{lll}
+            \env{table} & \env{figure} & \env{equation}\\
+            表格 & 图片 & 公式 \\\hline
+            \env{itemize} & \env{enumerate} & \env{description}\\
+            无编号列表 & 编号列表 & 描述 \\\hline
+        \end{tabular}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{公式}
+    \begin{exampleblock}{无编号公式} % 加 * 
+        \begin{equation*}
+            \frac{\sin x}{n}=six=6
+        \end{equation*}
+    \end{exampleblock}
+    \begin{exampleblock}{多行多列公式}
+        \begin{align}
+            \frac{\sin x}{n}&=six=6\\
+            \sin x&=6n
+        \end{align}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{公式}
+    \begin{exampleblock}{编号多行公式}
+        % Taken from Mathmode.tex
+        \begin{multline}
+            A=\lim_{n\rightarrow\infty}\Delta x\left(a^{2}+\left(a^{2}+2a\Delta x+\left(\Delta x\right)^{2}\right)\right.\label{eq:reset}\\
+            +\left(a^{2}+2\cdot2a\Delta x+2^{2}\left(\Delta x\right)^{2}\right)\\
+            +\left(a^{2}+2\cdot3a\Delta x+3^{2}\left(\Delta x\right)^{2}\right)\\
+            +\ldots\\
+            \left.+\left(a^{2}+2\cdot(n-1)a\Delta x+(n-1)^{2}\left(\Delta x\right)^{2}\right)\right)\\
+            =\frac{1}{3}\left(b^{3}-a^{3}\right)
+        \end{multline}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]{环境命令}
+        \begin{lstlisting}[language=TeX]
+\begin{itemize}
+  \item A 
+  \item B
+  \item C
+  \begin{itemize}
+    \item C-1
+  \end{itemize}
+\end{itemize}
+        \end{lstlisting}
+\end{frame}
+
+\subsection{图表布局类}
+\begin{frame}{图片及分栏}
+    \begin{minipage}[c]{0.3\linewidth}
+        \medskip
+        \begin{figure}[h]
+            \centering
+            \includegraphics[height=.4\textheight]{pic/CAUlogo.png}
+        \end{figure}
+    \end{minipage}\hspace{1cm}
+    \begin{minipage}{0.5\linewidth}
+        \medskip
+        %\hspace{2cm}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[height=.4\textheight]{pic/cau.jpg}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+\begin{frame}{表格}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c}
+            Microsoft\textsuperscript{\textregistered}  Word & \LaTeX \\
+            \hline
+            文字处理工具 & 专业排版软件 \\
+            容易上手，简单直观 & 容易上手 \\
+            所见即所得 & 所见即所想，所想即所得 \\
+            高级功能不易掌握 & 进阶难，但一般用不到 \\
+            处理长文档需要丰富经验 & 和短文档处理基本无异 \\
+            花费大量时间调格式 & 无需担心格式，专心作者内容 \\
+            公式排版差强人意 & 尤其擅长公式排版 \\
+            二进制格式，兼容性差 & 文本文件，易读、稳定 \\
+            付费商业许可 & 自由免费使用 \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}
+    其实大部分命令就是常规的\LaTeX{}命令，这里不再赘述。
+\end{frame}
+
+\section{漂流计划}
+\begin{frame}{漂流计划}
+    希望各位在使用的时候也对此模板进行美化和维护。由于overleaf平台查重机制十分严格，会导致同主题模板很难上传，因此个人联系方式如下：
+    \par \qquad 1923097633@qq.com。
+    \par 如有更好的版本，请将其overleaf共享链接以及改进要点发给我，我再查看确认后会回复一封感谢邮件并将此模板撤稿，以便更好的模板的投稿。
+\end{frame}
+
+\section{参考文献}
+
+\begin{frame}[allowframebreaks]
+    \bibliographystyle{alpha}
+    \bibliography{ref}
+    % 如果参考文献太多的话，可以像下面这样调整字体：
+    % \tiny\bibliographystyle{alpha}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Huge\calligra Thanks!}
+    \end{center}
+\end{frame}
+
+\end{document}
